@@ -5,7 +5,7 @@
 //  Created by Ebraham Alskaf on 03/01/2024.
 //
 
-import XCTest   
+import XCTest      
 @testable import OS
 
 final class OSTests: XCTestCase {   
