@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
     // Function to perform the login
      func login(username: String, password: String) {
          let loginRequestBody = LoginRequest(username: username, password: password)
-         MapClient.login(responseType: PostSessionResponse.self, body: loginRequestBody) { response, error in
+         MapClient.login(responseType: PostUdacityResponse.self, body: loginRequestBody) { response, error in
              if let error = error {
                  DispatchQueue.main.async {
                      self.showAlert(message: "Login failed: \(error.localizedDescription)")
