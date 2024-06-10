@@ -20,14 +20,14 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    // Action for the login button
+// Action for the login button
     @IBAction func loginButtonTapped(_sender: UIButton) {
         guard let username = usernameTextField.text, !username.isEmpty,
               let password = passwordTextField.text, !password.isEmpty else {
             showAlert(message: "Please enter both username and password.")
             return
         }
-        login(objectId: objectId, password: password)
+        login(username: username, password: password)
     }
     
     // Function to show an alert
@@ -38,8 +38,8 @@ class LoginViewController: UIViewController {
     }
     
     // Function to perform the login
-     func login(objectId: String, password: String) {
-         let loginRequestBody = LocationRequest(objectId: objectId)
+     func login(username: String, password: String) {
+         let loginRequestBody = LoginRequest(username: username, password: password)
          MapClient.login(responseType: PostSessionResponse.self, body: loginRequestBody) { response, error in
              if let error = error {
                  DispatchQueue.main.async {
